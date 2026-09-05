@@ -14,7 +14,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 110px;
+    scroll-padding-top: 280px;
 }
 
 body {
@@ -37,14 +37,15 @@ header {
     border-radius: 0 0 20px 20px;
 }
 
-nav {
+.menu {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     gap: 10px;
 }
 
-a {
+.menu a {
+    display: inline-block;
     text-decoration: none;
     color: var(--cor-Branco);
     border: solid 1px var(--cor-DodgerBlue);
@@ -184,19 +185,22 @@ li input[type="checkbox"]:checked+span {
         width: 90%;
     }
 
-    nav {
-        margin-top: 10px;
-        padding: 5px;
-        gap: 10px;
+    .menu {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 5px auto 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 
-    a {
+    .menu a {
         text-decoration: none;
         color: var(--cor-Branco);
         border: solid 1px var(--cor-DodgerBlue);
         border-radius: 10px;
-        padding: 5px;
-        font-size: small;
+        font-weight: bold;
     }
 
 }

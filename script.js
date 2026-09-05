@@ -21,4 +21,4 @@
                 itens[i].style.display = "none"; 
             }
         }
-    }
+    } 
