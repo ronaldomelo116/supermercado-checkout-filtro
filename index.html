@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supermercado checkout filtro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Exemplo de barra de pesquisa</h1>
+    <main class="container">
+        <input type="text" id="BarraPesquisa" onkeyup="filtrarLista()" placeholder="Digite para buscar...">
+        
+        <ul id="listaItens">
+            <li class="locais">🥩 Açougue e Peixaria</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Peito de frango (1kg)</span></li>
+                <li><input type="checkbox"> <span>Carne moída (patinho - 800g)</span></li>
+                <li><input type="checkbox"> <span>Filé de tilápia congelado (1 pacote)</span></li>
+            </ol>
+            <br>
+            <li class="locais">🥦 Hortifrúti (Frutas, Legumes e Verduras)</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Banana-prata (1 penca)</span></li>
+                <li><input type="checkbox"> <span>Maçã gala (1 kg)</span></li>
+                <li><input type="checkbox"> <span>Tomate italiano (1 kg)</span></li>
+                <li><input type="checkbox"> <span>Cebola (500g)</span></li>
+                <li><input type="checkbox"> <span>Alface crespa (1 maço)</span></li>
+            </ol>
+            <br>
+            <li class="locais">🥛 Laticínios e Frios</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Leite integral (4 caixas)</span></li>
+                <li><input type="checkbox"> <span>Queijo muçarela fatiado (300g)</span></li>
+                <li><input type="checkbox"> <span>Presunto cozido fatiado (200g)</span></li>
+                <li><input type="checkbox"> <span>Iogurte natural (1 fardo com 4 unidades)</span></li>
+                <li><input type="checkbox"> <span>Manteiga com sal (1 pote)</span></li>
+            </ol>
+            <br>
+            <li class="locais">🌾 Mercearia</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Arroz agulhinha Tipo 1 (5kg)</span></li>
+                <li><input type="checkbox"> <span>Feijão carioca (2kg)</span></li>
+                <li><input type="checkbox"> <span>Macarrão espaguete (2 pacotes)</span></li>
+                <li><input type="checkbox"> <span>Molho de tomate (3 sachês)</span></li>
+                <li><input type="checkbox"> <span>Azeite de oliva extra virgem (1 garrafa)</span></li>
+                <li><input type="checkbox"> <span>Café torrado e moído (500g)</span></li>
+            </ol>
+            <br>
+            <li class="locais">🍫 Petiscos e Matinais</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Pão de forma integral (1 pacote)</span></li>
+                <li><input type="checkbox"> <span>Biscoito água e sal (1 pacote)</span></li>
+                <li><input type="checkbox"> <span>Chocolate meio amargo (2 barras)</span></li>
+            </ol>
+            <br>
+            <li class="locais">🧼 Limpeza e Higiene</li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Detergente líquido (2 frascos)</span></li>
+                <li><input type="checkbox"> <span>Sabão em pó ou líquido para roupas (1 galão de 3L)</span></li>
+                <li><input type="checkbox"> <span>Papel higiênico (folha dupla - pacote com 12 rolos)</span></li>
+                <li><input type="checkbox"> <span>Creme dental (2 unidades)</span></li>
+                <li><input type="checkbox"> <span>Sabonete em barra (4 unidades)</span></li>
+            </ol>
+        </ul>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
