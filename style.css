@@ -5,6 +5,37 @@
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     }
 
+    :root {
+        --cor-onix: #0c0c0c;
+        --cor-YaleBlue: #0e5282;
+        --cor-DodgerBlue: #1098f7;
+        --cor-Branco: #ffffff;  
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--cor-onix);
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #0e5282;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 20px;
+        box-shadow: 0 4px 10px var(--cor-YaleBlue);
+    }
+
+   
     h1 {
         text-align: center;
         margin: 20px;
@@ -12,8 +43,8 @@
         text-transform: uppercase;
         border: solid 2px;
         border-radius: 10px;
-        background-color: brown;
-        color: beige;
+        background-color: var(--cor-DodgerBlue);
+        color: var(--cor-Branco);
     }
 
     .container {
@@ -21,24 +52,40 @@
         height: auto;
         border: solid 1px;
         border-radius: 10px;
+        margin-top: 200px;
+    }
+
+     .caixa-pesquisa {
+        position: relative;
+        width: 80%;
+        margin: auto;
     }
 
     #BarraPesquisa {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 12px 20px;
+        padding: 12px 20px 12px 40px;
         margin: 20px auto;
         font-size: 15px;
         outline: none;
-        border: solid 1px;
+        border: solid 5px var(--cor-YaleBlue);
         border-radius: 10px;
         transition: border-color 0.3s;
     }
 
     #BarraPesquisa:focus {
-        border-color: brown;
+        border-color: var(--cor-DodgerBlue);
+    }
+
+    .caixa-pesquisa .bi-search {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        pointer-events: none;
     }
 
     ul {
@@ -53,20 +100,24 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
-        background: beige;
+        background: var(--cor-YaleBlue);
+        box-shadow: 1px 8px #0e5282;
         margin-bottom: 5px;
         border-radius: 10px;
-        border: solid 1px #ddd;
+        border: solid 1px var(--cor-DodgerBlue);
         gap: 12px;
         padding: 12px;
         cursor: pointer;
+        color: var(--cor-Branco);
     }
-
+    
     .locais {
-        background: brown;
-        color: bisque;
+        background: var(--cor-DodgerBlue);
+        color: var(--cor-Branco);
         text-transform: uppercase;
         font-weight: bold;
+        cursor: default;
+        box-shadow: none;
     }
 
     .item-da-locais {
@@ -77,10 +128,16 @@
         list-style:none;  
     }
 
+    li:hover:not(.locais) {
+         background: var(--cor-onix);
+         transform: scale(1.1);
+    }
+
+
     li input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      cursor: pointer;
+      cursor: pointer;  
     }
 
     /* Risca o texto quando o checkbox estiver marcado */
