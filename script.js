@@ -16,9 +16,10 @@
             }
 
             if (textoItem.toLowerCase().indexOf(input) > -1) {
-                itens[i].style.display = "flex"; 
+                itens[i].style.display = "flex";
             } else {
-                itens[i].style.display = "none"; 
+                itens[i].style.display = "none";
+
             }
         }
     } 

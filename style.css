@@ -142,6 +142,7 @@ li {
     font-weight: bold;
     cursor: default;
     box-shadow: none;
+    margin-bottom: 20px;
 }
 
 .item-da-locais {
@@ -150,6 +151,7 @@ li {
     flex-direction: column;
     margin-inline: auto;
     list-style: none;
+    margin-bottom: 20px;
 }
 
 li:hover:not(.locais) {
