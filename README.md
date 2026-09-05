@@ -1,5 +1,7 @@
 # 🛒 Smart Grocery List (Lista de Compras Inteligente)
 
+link do projeto: <a href="https://ronaldomelo116.github.io/supermercado-checkout-filtro/">Supermercado Checkout</a>
+
 Uma aplicação de lista de compras interativa e de alta performance para supermercados. O projeto conta com um sistema de busca dinâmica em tempo real e marcação de itens concluídos de forma totalmente responsiva.
 
 ---
