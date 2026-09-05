@@ -22,4 +22,11 @@
 
             }
         }
-    } 
+    }
+    
+    /* let space1 = document.getElementById("acougue-peixaria");
+    
+    // Se o elemento existir na tela, aplica o espaçamento correto no topo
+    if (space1) {
+        space1.style.marginTop = "260px";
+    } */
