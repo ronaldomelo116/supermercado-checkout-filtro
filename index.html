@@ -12,12 +12,22 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <!-- Biblioteca jsPDF via CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body class="carregando">
     <header>
-        <h1><i class="bi bi-shop"></i> Lista de Mercado</h1>
-        <nav class="menu">
+        <div class="topo-header">
+            <h1><i class="bi bi-shop"></i> Lista de Mercado</h1>
+            <button class="btn-hamburguer" id="btnHamburguer" aria-label="Abrir Menu" aria-expanded="false">
+                <span class="linha"></span>
+                <span class="linha"></span>
+                <span class="linha"></span>
+            </button>
+        </div>
+
+        <nav class="menu" id="menuNabegacao">
             <a href="#acougue-peixaria">Açougue</a>
             <a href="#hortifruti">Hortifrúti</a>
             <a href="#laticínios-frios">Laticínios</a>
@@ -29,7 +39,7 @@
             <i class="bi bi-search"></i>
             <input type="text" id="BarraPesquisa" onkeyup="filtrarLista()" placeholder="Digite para buscar...">
             <button id="btnLimparCheckboxes" title="Limpar todas as marcações" disabled>
-        <i class="bi bi-trash"></i></button>
+                <i class="bi bi-trash"></i></button>
         </div>
 
     </header>
@@ -38,35 +48,51 @@
 
         <ul id="listaItens">
             <li class="locais" id="acougue-peixaria">🥩 Açougue e Peixaria</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Peito de frango (1kg)</span></li>
                 <li><input type="checkbox"> <span>Carne moída (patinho - 800g)</span></li>
                 <li><input type="checkbox"> <span>Filé de tilápia congelado (1 pacote)</span></li>
+                <li><input type="checkbox"> <span>Alcatra ou Coxão mole em bifes (1kg)</span></li>
+                <li><input type="checkbox"> <span>Coxa e sobrecoxa de frango (1kg)</span></li>
+                <li><input type="checkbox"> <span>Linguiça (1 pacote)</span></li>
+                <li><input type="checkbox"> <span>Bacon (200g)</span></li>
+                <li><input type="checkbox"> <span>Camarão limpo congelado (400g)</span></li>
             </ol>
-           
+
             <li class="locais" id="hortifruti">🥦 Hortifrúti (Frutas, Legumes e Verduras)</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Banana-prata (1 penca)</span></li>
                 <li><input type="checkbox"> <span>Maçã gala (1 kg)</span></li>
                 <li><input type="checkbox"> <span>Tomate italiano (1 kg)</span></li>
                 <li><input type="checkbox"> <span>Cebola (500g)</span></li>
                 <li><input type="checkbox"> <span>Alface crespa (1 maço)</span></li>
+                <li><input type="checkbox"> <span>Ovos brancos ou caipiras (cartela com 30 un.)</span></li>
+                <li><input type="checkbox"> <span>Batata inglesa (1,5kg)</span></li>
+                <li><input type="checkbox"> <span>Cenoura (500g)</span></li>
+                <li><input type="checkbox"> <span>Alho (1 pacote/réstia de 200g)</span></li>
+                <li><input type="checkbox"> <span>Laranja-pera (2kg)</span></li>
+                <li><input type="checkbox"> <span>Limão-taiti (500g)</span></li>
             </ol>
-            
+
             <li class="locais" id="laticínios-frios">🥛 Laticínios e Frios</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Leite integral (4 caixas)</span></li>
                 <li><input type="checkbox"> <span>Queijo muçarela fatiado (300g)</span></li>
                 <li><input type="checkbox"> <span>Presunto cozido fatiado (200g)</span></li>
                 <li><input type="checkbox"> <span>Iogurte natural (1 fardo com 4 unidades)</span></li>
                 <li><input type="checkbox"> <span>Manteiga com sal (1 pote)</span></li>
+                <li><input type="checkbox"> <span>Requeijão cremoso tradicional (1 copo)</span></li>
+                <li><input type="checkbox"> <span>Queijo parmesão ralado (2 saquinhos de 50g)</span></li>
+                <li><input type="checkbox"> <span>Creme de leite (3 caixinhas)</span></li>
+                <li><input type="checkbox"> <span>Leite condensado (2 caixinhas)</span></li>
+                <li><input type="checkbox"> <span>Queijo prato fatiado (200g)</span></li>
             </ol>
-            
+
             <li class="locais" id="mercearia">🌾 Mercearia</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Arroz agulhinha Tipo 1 (5kg)</span></li>
                 <li><input type="checkbox"> <span>Feijão carioca (2kg)</span></li>
@@ -74,24 +100,42 @@
                 <li><input type="checkbox"> <span>Molho de tomate (3 sachês)</span></li>
                 <li><input type="checkbox"> <span>Azeite de oliva extra virgem (1 garrafa)</span></li>
                 <li><input type="checkbox"> <span>Café torrado e moído (500g)</span></li>
+                <li><input type="checkbox"> <span>Açúcar refinado ou cristal (1kg)</span></li>
+                <li><input type="checkbox"> <span>Sal refinado (1kg)</span></li>
+                <li><input type="checkbox"> <span>Óleo de soja (2 garrafas de 900ml)</span></li>
+                <li><input type="checkbox"> <span>Farinha de trigo (1kg)</span></li>
+                <li><input type="checkbox"> <span>Milho verde em conserva (2 latas)</span></li>
+                <li><input type="checkbox"> <span>Atum ralado em óleo (2 latas)</span></li>
             </ol>
-           
+
             <li class="locais" id="petiscos-matinais">🍫 Petiscos e Matinais</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Pão de forma integral (1 pacote)</span></li>
                 <li><input type="checkbox"> <span>Biscoito água e sal (1 pacote)</span></li>
                 <li><input type="checkbox"> <span>Chocolate meio amargo (2 barras)</span></li>
+                <li><input type="checkbox"> <span>Aveia em flocos (1 caixa de 200g)</span></li>
+                <li><input type="checkbox"> <span>Torrada integral multigrãos (1 pacote)</span></li>
+                <li><input type="checkbox"> <span>Geleia de morango ou frutas vermelhas (1 pote)</span></li>
+                <li><input type="checkbox"> <span>Biscoito recheado de chocolate (2 pacotes)</span></li>
+                <li><input type="checkbox"> <span>Amendoim torrado e salgado (1 pacote de 150g)</span></li>
+                <li><input type="checkbox"> <span>Barrinha de cereal (1 caixa com 3 un.)</span></li>
             </ol>
-            
+
             <li class="locais" id="limpeza-higiene">🧼 Limpeza e Higiene</li>
-            
+
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Detergente líquido (2 frascos)</span></li>
                 <li><input type="checkbox"> <span>Sabão em pó ou líquido para roupas (1 galão de 3L)</span></li>
                 <li><input type="checkbox"> <span>Papel higiênico (folha dupla - pacote com 12 rolos)</span></li>
                 <li><input type="checkbox"> <span>Creme dental (2 unidades)</span></li>
                 <li><input type="checkbox"> <span>Sabonete em barra (4 unidades)</span></li>
+                <li><input type="checkbox"> <span>Água sanitária (1 garrafa de 2L)</span></li>
+                <li><input type="checkbox"> <span>Desinfetante para pisos (1 frasco de 1L)</span></li>
+                <li><input type="checkbox"> <span>Esponja dupla face multiuso (pacote com 3 un.)</span></li>
+                <li><input type="checkbox"> <span>Amaciante concentrado de roupas (1 frasco de 1L)</span></li>
+                <li><input type="checkbox"> <span>Shampoo e Condicionador (1 kit)</span></li>
+                <li><input type="checkbox"> <span>Desodorante antitranspirante (2 unidades)</span></li>
             </ol>
         </ul>
     </main>
@@ -101,4 +145,5 @@
     </footer>
 </body>
 <script src="script.js"></script>
+
 </html>

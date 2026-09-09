@@ -11,6 +11,7 @@
     --cor-DodgerBlue: #1098f7;
     --cor-Branco: #ffffff;
 }
+
 .carregando * {
     transition: none !important;
 }
@@ -62,11 +63,16 @@ a:hover {
     transform: scale(1.05);
 }
 
-
+.topo-header {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px 0 5px 0;
+}
 
 h1 {
     text-align: center;
-    margin: 20px;
+    margin: 0;
     padding: 10px;
     text-transform: uppercase;
     border: solid 2px;
@@ -119,7 +125,7 @@ h1 {
     color: var(--cor-Branco);
     border: solid 2px var(--cor-DodgerBlue);
     border-radius: 10px;
-    padding: 12px 20px;
+    padding: 10px 10px;
     font-size: 15px;
     cursor: pointer;
     transition: 0.3s;
@@ -205,6 +211,24 @@ li input[type="checkbox"]:checked+span {
     color: #888;
 }
 
+.btn-hamburguer {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.btn-hamburguer .linha {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--cor-Branco);
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
 .rodape {
     margin-top: 50px;
     padding: 30px;
@@ -225,9 +249,13 @@ li input[type="checkbox"]:checked+span {
 
 @media (max-width: 768px) {
 
+    .topo-header {
+        width: 90%;
+        margin-right: auto;
+    }
+
     h1 {
-        font-size: 20px;
-        margin-bottom: 0;
+        font-size: 15px;
     }
 
     .container {
@@ -238,14 +266,43 @@ li input[type="checkbox"]:checked+span {
         width: 90%;
     }
 
+    .btn-hamburguer {
+        display: block;
+        z-index: 1100;
+        position: absolute;
+        right: 0;
+        transform: translateY(-100%);
+    }
+
+    .btn-hamburguer.ativo .linha:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .btn-hamburguer.ativo .linha:nth-child(2) {
+        opacity: 0;
+    }
+
+    .btn-hamburguer.ativo .linha:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .menu {
-        width: 100%;
-        justify-content: flex-start;
-        margin: 5px auto 5px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--cor-YaleBlue);
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 20px;
+        box-shadow: -3px 0 10px rgb(0, 0, 0, 0.4);
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .menu.ativo {
+        right: 0;
     }
 
     .menu a {
@@ -255,6 +312,7 @@ li input[type="checkbox"]:checked+span {
         border-radius: 10px;
         font-weight: bold;
     }
+
 
     .rodape {
         font-size: small;

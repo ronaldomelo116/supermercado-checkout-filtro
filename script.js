@@ -105,3 +105,26 @@ verificarEstadoDoBotao();
 setTimeout(() => {
     document.body.classList.remove("carregando");
 }, 10);
+
+
+/* menu hunbúrguer */
+
+const btnHamburguer = document.getElementById('btnHamburguer');
+const menuNabegacao = document.getElementById('menuNabegacao');
+const linkMenu = menuNabegacao.querySelectorAll('a');
+
+btnHamburguer.addEventListener('click', () => {
+    const openMenu = menuNabegacao.classList.toggle('ativo');
+    btnHamburguer.classList.toggle('ativo');
+    btnHamburguer.setAttribute('aria-expanded', openMenu);
+});
+
+linkMenu.forEach(link => {
+    link.addEventListener('click', () => {
+        menuNabegacao.classList.remove('ativo');
+        btnHamburguer.classList.remove('ativo');
+        btnHamburguer.setAttribute('aria-expanded', 'false');
+    });
+});
+
+
