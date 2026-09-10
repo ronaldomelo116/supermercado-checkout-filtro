@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <!-- Biblioteca jsPDF via CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body class="carregando">
@@ -33,11 +33,16 @@
             <a href="#laticínios-frios">Laticínios</a>
             <a href="#mercearia">Mercearia</a>
             <a href="#petiscos-matinais">Petiscos</a>
+            <a href="#bebidas">Bebidas</a>
             <a href="#limpeza-higiene">Limpeza</a>
+            <a href="#pet-shop">Pet Shop</a>
         </nav>
         <div class="caixa-pesquisa">
             <i class="bi bi-search"></i>
             <input type="text" id="BarraPesquisa" onkeyup="filtrarLista()" placeholder="Digite para buscar...">
+            <button id="btnGerarPdf" title="Baixar lista marcada em PDF">
+                <i class="bi bi-file-earmark-pdf"></i>
+            </button>
             <button id="btnLimparCheckboxes" title="Limpar todas as marcações" disabled>
                 <i class="bi bi-trash"></i></button>
         </div>
@@ -47,7 +52,8 @@
     <main class="container">
 
         <ul id="listaItens">
-            <li class="locais" id="acougue-peixaria">🥩 Açougue e Peixaria</li>
+            <li class="locais" id="acougue-peixaria"><img width="24" height="24" src="img/bife.svg" alt="bife"> Açougue
+                e Peixaria</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Peito de frango (1kg)</span></li>
@@ -58,9 +64,15 @@
                 <li><input type="checkbox"> <span>Linguiça (1 pacote)</span></li>
                 <li><input type="checkbox"> <span>Bacon (200g)</span></li>
                 <li><input type="checkbox"> <span>Camarão limpo congelado (400g)</span></li>
+                <li><input type="checkbox"> <span>Costelinha de porco (1kg)</span></li>
+                <li><input type="checkbox"> <span>Hambúrguer bovino congelado (caixa com 12 un.)</span></li>
+                <li><input type="checkbox"> <span>Salmão em postas (500g)</span></li>
+                <li><input type="checkbox"> <span>Nuggets / Empanado de frango (1 pacote de 300g)</span></li>
+                <li><input type="checkbox"> <span>Acém ou Músculo bovino para panela (1kg)</span></li>
             </ol>
 
-            <li class="locais" id="hortifruti">🥦 Hortifrúti (Frutas, Legumes e Verduras)</li>
+            <li class="locais" id="hortifruti"><img width="24" height="24" src="img/hortifruti.svg" alt="hortifruti">
+                Hortifrúti (Frutas, Legumes e Verduras)</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Banana-prata (1 penca)</span></li>
@@ -74,9 +86,16 @@
                 <li><input type="checkbox"> <span>Alho (1 pacote/réstia de 200g)</span></li>
                 <li><input type="checkbox"> <span>Laranja-pera (2kg)</span></li>
                 <li><input type="checkbox"> <span>Limão-taiti (500g)</span></li>
+                <li><input type="checkbox"> <span>Cheiro-verde (cebolinha e coentro/salsa - 1 maço)</span></li>
+                <li><input type="checkbox"> <span>Brócolis ninja (1 maço)</span></li>
+                <li><input type="checkbox"> <span>Pimentão verde e vermelho (1 de cada)</span></li>
+                <li><input type="checkbox"> <span>Uva sem semente (1 caixinha de 500g)</span></li>
+                <li><input type="checkbox"> <span>Mamão papaya (2 unidades)</span></li>
+                <li><input type="checkbox"> <span>Abacaxi pérola (1 unidade)</span></li>
             </ol>
 
-            <li class="locais" id="laticínios-frios">🥛 Laticínios e Frios</li>
+            <li class="locais" id="laticínios-frios"><img width="24" height="24" src="img/laticínios.svg"
+                    alt="laticínios-frios"> Laticínios e Frios</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Leite integral (4 caixas)</span></li>
@@ -89,14 +108,21 @@
                 <li><input type="checkbox"> <span>Creme de leite (3 caixinhas)</span></li>
                 <li><input type="checkbox"> <span>Leite condensado (2 caixinhas)</span></li>
                 <li><input type="checkbox"> <span>Queijo prato fatiado (200g)</span></li>
+                <li><input type="checkbox"> <span>Queijo minas frescal (1 peça de 500g)</span></li>
+                <li><input type="checkbox"> <span>Peito de peru defumado fatiado (200g)</span></li>
+                <li><input type="checkbox"> <span>Queijo provolone fatiado ou em pedaço (200g)</span></li>
+                <li><input type="checkbox"> <span>Salame italiano fatiado (100g)</span></li>
+                <li><input type="checkbox"> <span>Bebida láctea de chocolate (1 litro)</span></li>
             </ol>
 
-            <li class="locais" id="mercearia">🌾 Mercearia</li>
+            <li class="locais" id="mercearia"><img width="24" height="24" src="img/mercearia.svg" alt="mercearia">
+                Mercearia</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Arroz agulhinha Tipo 1 (5kg)</span></li>
                 <li><input type="checkbox"> <span>Feijão carioca (2kg)</span></li>
                 <li><input type="checkbox"> <span>Macarrão espaguete (2 pacotes)</span></li>
+                <li><input type="checkbox"> <span>Flocão De Milho (500g)</span></li>
                 <li><input type="checkbox"> <span>Molho de tomate (3 sachês)</span></li>
                 <li><input type="checkbox"> <span>Azeite de oliva extra virgem (1 garrafa)</span></li>
                 <li><input type="checkbox"> <span>Café torrado e moído (500g)</span></li>
@@ -104,11 +130,20 @@
                 <li><input type="checkbox"> <span>Sal refinado (1kg)</span></li>
                 <li><input type="checkbox"> <span>Óleo de soja (2 garrafas de 900ml)</span></li>
                 <li><input type="checkbox"> <span>Farinha de trigo (1kg)</span></li>
+                <li><input type="checkbox"> <span>Farofa de Mandioca (1kg)</span></li>
                 <li><input type="checkbox"> <span>Milho verde em conserva (2 latas)</span></li>
                 <li><input type="checkbox"> <span>Atum ralado em óleo (2 latas)</span></li>
+                <li><input type="checkbox"> <span>Feijão preto (1kg)</span></li>
+                <li><input type="checkbox"> <span>Macarrão parafuso ou penne (2 pacotes)</span></li>
+                <li><input type="checkbox"> <span>Maionese tradicional (1 pote de 500g)</span></li>
+                <li><input type="checkbox"> <span>Ketchup e Mostarda (1 kit)</span></li>
+                <li><input type="checkbox"> <span>Farofa pronta temperada (1 pacote de 400g)</span></li>
+                <li><input type="checkbox"> <span>Azeitona verde sem caroço (1 sachê)</span></li>
+                <li><input type="checkbox"> <span>Vinagre de maçã ou álcool (1 garrafa de 750ml)</span></li>
             </ol>
 
-            <li class="locais" id="petiscos-matinais">🍫 Petiscos e Matinais</li>
+            <li class="locais" id="petiscos-matinais"><img width="24" height="24" src="img/petiscos.svg"
+                    alt="petiscos-matinais"> Petiscos e Matinais</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Pão de forma integral (1 pacote)</span></li>
@@ -120,9 +155,29 @@
                 <li><input type="checkbox"> <span>Biscoito recheado de chocolate (2 pacotes)</span></li>
                 <li><input type="checkbox"> <span>Amendoim torrado e salgado (1 pacote de 150g)</span></li>
                 <li><input type="checkbox"> <span>Barrinha de cereal (1 caixa com 3 un.)</span></li>
+                <li><input type="checkbox"> <span>Pão de queijo congelado (1 pacote de 400g)</span></li>
+                <li><input type="checkbox"> <span>Cereal matinal de milho / Sucrilhos (1 caixa de 300g)</span></li>
+                <li><input type="checkbox"> <span>Granola tradicional com castanhas (1 pacote de 500g)</span></li>
+                <li><input type="checkbox"> <span>Achocolatado em pó (1 lata de 400g)</span></li>
+                <li><input type="checkbox"> <span>Batata frita chips ondulada (1 pacote de 100g)</span></li>
+                <li><input type="checkbox"> <span>Castanha de caju torrada (1 pacote de 100g)</span></li>
             </ol>
 
-            <li class="locais" id="limpeza-higiene">🧼 Limpeza e Higiene</li>
+            <li class="locais" id="bebidas">
+                <img width="24" height="24" src="img/bebidas.svg" alt="bebidas"> Bebidas
+            </li>
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Água mineral sem gás (fardo com 6 garrafas de 500ml)</span></li>
+                <li><input type="checkbox"> <span>Refrigerante de cola ou guaraná (garrafa de 2L)</span></li>
+                <li><input type="checkbox"> <span>Cerveja puro malte (pack com 12 latas)</span></li>
+                <li><input type="checkbox"> <span>Suco de uva integral (garrafa de 1,5L)</span></li>
+                <li><input type="checkbox"> <span>Água de coco integral (caixa de 1L)</span></li>
+                <li><input type="checkbox"> <span>Vinho tinto seco ou suave (1 garrafa de 750ml)</span></li>
+                <li><input type="checkbox"> <span>Chá mate tostado ou gelado (1 garrafa de 1,5L)</span></li>
+            </ol>
+
+            <li class="locais" id="limpeza-higiene"><img width="24" height="24" src="img/limpeza.svg"
+                    alt="limpeza-higiene"> Limpeza e Higiene</li>
 
             <ol class="item-da-locais">
                 <li><input type="checkbox"> <span>Detergente líquido (2 frascos)</span></li>
@@ -136,6 +191,27 @@
                 <li><input type="checkbox"> <span>Amaciante concentrado de roupas (1 frasco de 1L)</span></li>
                 <li><input type="checkbox"> <span>Shampoo e Condicionador (1 kit)</span></li>
                 <li><input type="checkbox"> <span>Desodorante antitranspirante (2 unidades)</span></li>
+                <li><input type="checkbox"> <span>Papel toalha de cozinha (pacote com 2 rolos)</span></li>
+                <li><input type="checkbox"> <span>Sacos para lixo de 50L (1 rolo com 30 un.)</span></li>
+                <li><input type="checkbox"> <span>Sabonete líquido para as mãos (1 frasco com pump)</span></li>
+                <li><input type="checkbox"> <span>Enxaguante bucal antisséptico (1 frasco de 500ml)</span></li>
+                <li><input type="checkbox"> <span>Fio dental (1 rolo de 50m)</span></li>
+                <li><input type="checkbox"> <span>Álcool 70% líquido ou em gel (1 frasco de 500ml)</span></li>
+            </ol>
+
+            <li class="locais" id="pet-shop">
+                <img width="24" height="24" src="img/pet.svg" alt="pet-shop"> Pet Shop
+            </li>
+
+            <ol class="item-da-locais">
+                <li><input type="checkbox"> <span>Ração seca para cães adultos (pacote de 3kg)</span></li>
+                <li><input type="checkbox"> <span>Ração seca para gatos castrados (pacote de 1kg)</span></li>
+                <li><input type="checkbox"> <span>Sachê de ração úmida para cães (3 unidades)</span></li>
+                <li><input type="checkbox"> <span>Sachê de ração úmida para gatos (3 unidades)</span></li>
+                <li><input type="checkbox"> <span>Areia higiênica sanitária para gatos (pacote de 4kg)</span></li>
+                <li><input type="checkbox"> <span>Petiscos / Bifinhos para cães (1 pacote de 60g)</span></li>
+                <li><input type="checkbox"> <span>Tapetes higiênicos para cães (pacote com 7 un.)</span></li>
+                <li><input type="checkbox"> <span>Shampoo neutro para pets (1 frasco de 500ml)</span></li>
             </ol>
         </ul>
     </main>

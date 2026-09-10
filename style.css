@@ -148,6 +148,32 @@ h1 {
     opacity: 0.7;
 }
 
+#btnGerarPdf {
+     background-color: var(--cor-Branco);
+    color: var(--cor-DodgerBlue);
+    border: solid 2px var(--cor-DodgerBlue);
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#btnGerarPdf:hover {
+    background-color: var(--cor-YaleBlue);
+    color: var(--cor-Branco);
+    border: solid 2px var(--cor-Branco);
+    transform: scale(1.05);
+}
+
+#btnGerarPdf:active {
+    transform: scale(0.95);
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -180,6 +206,10 @@ li {
     cursor: default;
     box-shadow: none;
     margin-bottom: 20px;
+}
+
+.locais img {
+    filter: brightness(0) invert(1);
 }
 
 
@@ -311,6 +341,10 @@ li input[type="checkbox"]:checked+span {
         border: solid 1px var(--cor-DodgerBlue);
         border-radius: 10px;
         font-weight: bold;
+    }
+
+    input {
+      width: 100%;
     }
 
 

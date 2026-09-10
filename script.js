@@ -128,3 +128,89 @@ linkMenu.forEach(link => {
 });
 
 
+/* gerador de pdf */
+
+function gerarPdfLista() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF;
+
+    const categorias = document.querySelectorAll('.locais');
+    let itensMercadosTotal = 0;
+
+    let posicaoY = 20;
+
+    /* cabeçalho */
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.text("LISTA DE COMPRAS", 105, posicaoY, { align: "center" });
+
+    posicaoY += 8;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    const dataHoje = new
+        Date().toLocaleDateString('pt-BR');
+    doc.text(`Gerado em ${dataHoje}`, 105, posicaoY, { align: "center" });
+
+    posicaoY += 12;
+
+    /* verifica cada categoria se tem item marcado */
+    categorias.forEach(categoria => {
+        const lista01 = categoria.nextElementSibling;
+        if (!lista01) return;
+
+        /* PEGA SOMENTE OS CHECKBOXES MARCADOS DENTRO DESSA CATEGORIA */
+        const checkboxesMarcados = lista01.querySelectorAll('input[type="checkbox"]:checked');
+
+        if (checkboxesMarcados.length > 0) {
+            itensMercadosTotal += checkboxesMarcados.length;
+
+
+            /* cria uma nova pagina se estiver perto do fim (280mm*/
+            if (posicaoY > 260) {
+                doc.addPage();
+                posicaoY = 20;
+            }
+
+            /* titulo da categoria em negrito e azul escuro */
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(13);
+            doc.setTextColor(14, 82, 130); /* cor azul */
+            doc.text(categoria.innerText, 15, posicaoY);
+            posicaoY += 7;
+
+            /* linha fina separada */
+            doc.setDrawColor(200, 200, 200);
+            doc.line(15, posicaoY - 2, 195, posicaoY - 2);
+
+            /*  Itens marcados da categoria */
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+            doc.setTextColor(30, 30, 30); /* Preto suave para leitura */
+
+            checkboxesMarcados.forEach(caixinha => {
+                const nomeItem = caixinha.nextElementSibling.innerText;
+                if (posicaoY > 275) {
+                    doc.addPage();
+                    posicaoY = 20;
+                }
+
+                /* Desenha o item com um quadradinho limpo de checklist [ ] */
+                doc.text(`[  ]  ${nomeItem}`, 20, posicaoY);
+                posicaoY += 6.5;
+            });
+
+            posicaoY += 6; /* Espaço entre uma categoria e outra */
+        }
+    });
+    /* 4. Se o usuário não marcou nada, avisa e cancela o download */
+    if (itensMercadosTotal === 0) {
+        alert("Você ainda não marcou nenhum item na lista!");
+        return;
+    }
+    /* 5. Salva e baixa o PDF */
+    doc.save("lista-de-compras.pdf");
+}
+/* Conecta a função ao clique do botão */
+document.getElementById("btnGerarPdf").addEventListener("click", gerarPdfLista);
+
