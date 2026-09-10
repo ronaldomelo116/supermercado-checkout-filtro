@@ -180,7 +180,7 @@ function gerarPdfLista() {
 
             /* linha fina separada */
             doc.setDrawColor(200, 200, 200);
-            doc.line(15, posicaoY - 2, 195, posicaoY - 2);
+            doc.line(15, posicaoY - 5, 195, posicaoY - 5);
 
             /*  Itens marcados da categoria */
 
