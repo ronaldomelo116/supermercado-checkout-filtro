@@ -281,7 +281,6 @@ li input[type="checkbox"]:checked+span {
 
     .topo-header {
         width: 90%;
-        margin-right: auto;
     }
 
     h1 {
@@ -353,29 +352,3 @@ li input[type="checkbox"]:checked+span {
     }
 
 }
-
-/* @media (orientation: landscape) and (max-width: 932px) {
-    .container {
-        padding: 10px;
-    }
-
-    h1 {
-        margin-top: 10px;
-        font-size: 15px;
-        position: absolute;
-        top: 0;
-    }
-
-    .menu {
-        margin-top: 100px;
-    }
-
-    .caixa-pesquisa {
-        top: -16%;
-    }
-
-    header {
-        height: 40%;
-    }
-
-} */
